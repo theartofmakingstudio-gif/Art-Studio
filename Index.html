@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Art of Making Studio</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #2c003e, #1a1a1a);
+            color: #fefefe;
+        }
+        header {
+            background: linear-gradient(90deg, #ff0080, #ff8c00);
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #111;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+        nav a {
+            color: #ffcc00;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        nav a:hover {
+            background: #ffcc00;
+            color: black;
+            border-radius: 4px;
+        }
+        section {
+            padding: 30px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        h2 {
+            text-align: center;
+            color: #ffcc00;
+            margin-bottom: 20px;
+        }
+        .slideshow {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+        .slides img {
+            width: 100%;
+            display: none;
+            border-radius: 10px;
+        }
+        .slides img.active {
+            display: block;
+        }
+        .slides p {
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 15px;
+            font-size: 1rem;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+        }
+        .booking-form input, .booking-form textarea, .booking-form select {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 6px;
+            background: #333;
+            color: white;
+        }
+        .booking-form button {
+            background: linear-gradient(90deg, #ff0080, #ff8c00);
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 6px;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        .booking-form button:hover {
+            transform: scale(1.05);
+        }
+        footer {
+            background: #111;
+            padding: 15px;
+            text-align: center;
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+        footer a {
+            color: #ffcc00;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>🎨 The Art of Making Studio 🎨</header>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#booking">Booking</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="home">
+        <h2>Our Creations</h2>
+        <div class="slideshow">
+            <div class="slides">
+                <img src="Website (1).jpg" class="active" alt="Ghumar">
+                <p>Ghumar beautifully crafted from juicer jars, adding artistic elegance to upcycled materials.</p>
+                <img src="Website (2).jpg" alt="Waste Decor">
+                <p>Waste items transformed into decorative art pieces, adding charm and sustainability.</p>
+                <img src="Website (5).jpg" alt="Madhubani Poster">
+                <p>Posters designed with traditional Madhubani art, rich in cultural heritage.</p>
+                <img src="Website (3).jpg" alt="Clay Pot">
+                <p>Plastic pot enhanced with clay designs, turning it into a gorgeous flower pot.</p>
+                <img src="Website (4).jpg" alt="Bottle Art">
+                <p>Plastic bottles reinvented with colorful designs for home décor.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>At The Art of Making Studio, we create unique projects, artistic models, and educational models tailored for different class requirements. We also make eye-catching handwritten files that leave a professional and creative impact. Our vision is to turn ordinary items into extraordinary masterpieces, blending creativity, culture, and sustainability.</p>
+    </section>
+
+    <section id="booking">
+        <h2>Book Your Order</h2>
+        <form class="booking-form" action="https://formspree.io/f/mblkqeal" method="POST">
+            <input type="text" name="name" placeholder="Customer Name" required>
+            <input type="tel" name="mobile" placeholder="Mobile Number" required>
+            <select name="what" required>
+                <option value="Projects">Projects</option>
+                <option value="Art and Craft Models">Art and Craft Models</option>
+                <option value="Handwritten Files">Handwritten Files</option>
+            </select>
+            <textarea name="reference" placeholder="Paste your reference link here (if any)"></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: <a href="mailto:theartofmakingstudio@gmail.com">theartofmakingstudio@gmail.com</a></p>
+        <p>Instagram: <a href="https://www.instagram.com/__theartofmaking__?igsh=Mjdzanc0OTBtMTM3" target="_blank">@__theartofmaking__</a></p>
+        <p>Order Form: <a href="https://formspree.io/f/mblkqeal" target="_blank">Click Here</a></p>
+    </section>
+
+    <footer>&copy; 2025 The Art of Making Studio | Designed with ❤️</footer>
+
+    <script>
+        let currentIndex = 0;
+        const images = document.querySelectorAll('.slides img');
+        const texts = document.querySelectorAll('.slides p');
+        function showSlide(index) {
+            images.forEach((img, i) => {
+                img.classList.toggle('active', i === index);
+                texts[i].style.display = i === index ? 'block' : 'none';
+            });
+        }
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % images.length;
+            showSlide(currentIndex);
+        }, 3000);
+        showSlide(currentIndex);
+    </script>
+</body>
+</html>
